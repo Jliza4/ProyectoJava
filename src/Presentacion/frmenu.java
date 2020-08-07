@@ -5,6 +5,8 @@
  */
 package Presentacion;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jhosselyn
@@ -15,7 +17,62 @@ public class frmenu extends javax.swing.JFrame {
     public frmenu() {
         initComponents();
     }
+    
+    private String accion="guardar";
+    
+    void ocultar_columnas(){
+        tablalistamesa.getColumnModel().getColumn(0).setMaxWidth(0);
+        tablalistamesa.getColumnModel().getColumn(0).setMinWidth(0);
+        tablalistamesa.getColumnModel().getColumn(0).setPreferredWidth(0);
+    }
+    void inhabilitar (){
+        textidmenu.setVisible(false);
+        textnombremenu.setEnabled(false);
+        textdescripcionmenu.setEnabled(false);
+        textpreciomenu.setEnabled(false);
+        
+        
+        btnguardar.setEnabled(false);
+        btnuevo.setEnabled(false);
+        btncancelar.setEnabled(false);
+        textidmenu.setText("");
+        textnombremenu.setText("");
+        textdescripcionmenu.setText("");
+    }
 
+    
+    void habilitar (){
+        textidmenu.setVisible(true);
+        textnombremenu.setEnabled(true);
+        textdescripcionmenu.setEnabled(true);
+        textpreciomenu.setEnabled(true);
+        
+        
+        btnguardar.setEnabled(true);
+        btnuevo.setEnabled(true);
+        btncancelar.setEnabled(true);
+        textidmenu.setText("");
+        textnombremenu.setText("");
+        textdescripcionmenu.setText("");
+        textpreciomenu.setText("");
+    }
+    
+    
+    void mostrar (String buscar){
+        try{
+            DefaultTableModel modelo;
+            fmenu func0 new fmenu();
+            modelo =func.mostrar(buscar);
+            
+            tablalistamesa.setModel(modelo);
+            ocultar_columnas();
+            lbltotalregistros.setText("Total Registros"+ Integer.toString(func.totalregistros));
+            
+        }catch (Exception e){
+            JOption.showConfirmDialog(rootPane, e);
+            
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -78,6 +135,11 @@ public class frmenu extends javax.swing.JFrame {
         });
 
         btnguardar.setText("Guardar");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarActionPerformed(evt);
+            }
+        });
 
         btncancelar.setText("Cancelar");
         btncancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -255,6 +317,9 @@ public class frmenu extends javax.swing.JFrame {
 
     private void btnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnuevoActionPerformed
         // TODO add your handling code here:
+        habilitar();
+        btnguardar.setText("Guardar");
+        accion="guardar";
     }//GEN-LAST:event_btnuevoActionPerformed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
@@ -264,6 +329,34 @@ public class frmenu extends javax.swing.JFrame {
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnsalirActionPerformed
+
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+        // TODO add your handling code here:
+        
+        if(textnombremenu.getText().length()==0){
+            JOptionPane.showConfirmDialog(rootPane, "debes ingresar un nombre");
+            textnombremenu.requestFocus();
+            return;
+        }
+        if(textdescripcionmenu.getText().length()==0){
+            JOptionPane.showConfirmDialog(rootPane, "debes ingresar una descripcion");
+            textdescripcionmenu.requestFocus();
+            return;
+        }
+        if(textpreciomenu.getText().length()==0){
+            JOptionPane.showConfirmDialog(rootPane, "debes ingresar un precio");
+            textpreciomenu.requestFocus();
+            return;
+        }
+        
+        vmenu dts =new vmenu();
+        fmenu func =new fmenu();
+        
+        dts.setnombre(textnombremenu.getText());
+        
+        
+        
+    }//GEN-LAST:event_btnguardarActionPerformed
 
     /**
      * @param args the command line arguments

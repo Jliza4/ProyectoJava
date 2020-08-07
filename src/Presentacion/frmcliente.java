@@ -78,6 +78,11 @@ public class frmcliente extends javax.swing.JFrame {
         jLabel5.setText("Dirección:");
 
         btnguardar.setText("Guardar");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarActionPerformed(evt);
+            }
+        });
 
         btncancelar.setText("Cancelar");
 
@@ -162,6 +167,10 @@ public class frmcliente extends javax.swing.JFrame {
     private void textelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textelefonoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textelefonoActionPerformed
+
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnguardarActionPerformed
 
     /**
      * @param args the command line arguments
