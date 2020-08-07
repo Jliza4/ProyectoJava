@@ -11,14 +11,14 @@ package Datos;
  */
 public class vmesa {
     private int id_mesa;
-    private int cantidad_personas_mesa;
+    private int cantidadperso_mesa;
     private String ubicacion_mesa;
     private float precio_mesa;
     private String estado;
 
-    public vmesa(int id_mesa, int cantidad_personas_mesa, String ubicacion_mesa, float precio_mesa, String estado) {
+    public vmesa(int id_mesa, int cantidadperso_mesa, String ubicacion_mesa, float precio_mesa, String estado) {
         this.id_mesa = id_mesa;
-        this.cantidad_personas_mesa = cantidad_personas_mesa;
+        this.cantidadperso_mesa = cantidadperso_mesa;
         this.ubicacion_mesa = ubicacion_mesa;
         this.precio_mesa = precio_mesa;
         this.estado = estado;
@@ -35,12 +35,12 @@ public class vmesa {
         this.id_mesa = id_mesa;
     }
 
-    public int getCantidad_personas_mesa() {
-        return cantidad_personas_mesa;
+    public int getCantidadperso_mesa() {
+        return cantidadperso_mesa;
     }
 
-    public void setCantidad_personas_mesa(int cantidad_personas_mesa) {
-        this.cantidad_personas_mesa = cantidad_personas_mesa;
+    public void setCantidadperso_mesa(int cantidadperso_mesa) {
+        this.cantidadperso_mesa = cantidadperso_mesa;
     }
 
     public String getUbicacion_mesa() {
@@ -66,7 +66,5 @@ public class vmesa {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
-    
-    
+     
 }
